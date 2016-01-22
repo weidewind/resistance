@@ -7,13 +7,10 @@
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#create-strain" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
+<!--		<a href="#create-strain" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a> -->
+<g:render template="../navigation"/>
+
+<div class="container">
 		<div id="create-strain" class="content scaffold-create" role="main">
 			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
@@ -26,14 +23,15 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-			<g:form url="[resource:strainInstance, action:'save']" >
-				<fieldset class="form">
-					<g:render template="form"/> 
-				</fieldset>
-				<fieldset class="buttons">
-					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-				</fieldset>
+			<g:form class="form-horizontal" role="form" url="[resource:strainInstance, action:'save']" >
+					<g:render template="form"/>
+					<div class="form-group"> 
+						<div class="col-sm-offset-2 col-sm-10">					
+							<g:submitButton name="create" class="btn btn-default" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+						</div>
+				
 			</g:form>
+		</div>
 		</div>
 	</body>
 </html>

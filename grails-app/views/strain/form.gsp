@@ -10,21 +10,21 @@
 	<body>
 
 
-	<div class="fieldcontain ${hasErrors(bean: strainInstance, field: 'name', 'error')} required">
+	<div class="form-group ${hasErrors(bean: strainInstance, field: 'name', 'error')} required">
 		<label for="name">
 			<g:message code="strain.name.label" default="Name" />
 			<span class="required-indicator">*</span>
 		</label>
-		<g:textField name="name" required="" value="${strainInstance?.name}"/>
+		<g:textField name="name" class = "form-control" required="" value="${strainInstance?.name}"/>
 
 	</div>
 
-	<div class="fieldcontain ${hasErrors(bean: strainInstance, field: 'pseudosequence', 'error')} required">
+	<div class="form-group ${hasErrors(bean: strainInstance, field: 'pseudosequence', 'error')} required">
 		<label for="pseudosequence">
 			<g:message code="strain.pseudosequence.label" default="Pseudosequence" />
 			<span class="required-indicator">*</span>
 		</label>
-		<g:textField name="pseudosequence" required="" value="${strainInstance?.pseudosequence}"/>
+		<g:textField name="pseudosequence" class = "form-control"  required="" value="${strainInstance?.pseudosequence}"/>
 
 	</div>
 

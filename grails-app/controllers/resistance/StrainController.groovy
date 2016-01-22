@@ -7,9 +7,20 @@ import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class StrainController {
-
+	
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+	def beforeInterceptor = [action:this.&checkUser,except:['index','show']]
+def checkUser() {
+if(!session.user) {
+// i.e. user not logged in
+redirect(controller:'user',action:'login')
+return false
+}
+}
+	
+	
+	
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Strain.list(params), model:[strainInstanceCount: Strain.count()]
